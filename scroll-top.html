@@ -9,14 +9,14 @@
       }
 
       .toast {
-          --paper-toast-background-color : var(--scroll-top-background-color, white); 
-          --paper-toast-color: var(--scroll-top-color, black);
+        --paper-toast-background-color: var(--scroll-top-background-color, white);
+        --paper-toast-color: var(--scroll-top-color, black);
       }
     </style>
 
-      <paper-toast class="toast" id="toastButton" duration="0" on-click="topFunction">
-        <slot></slot>
-      </paper-toast>
+    <paper-toast class="toast" id="toastButton" duration="0" on-click="topFunction">
+      <slot></slot>
+    </paper-toast>
 
   </template>
 
@@ -37,9 +37,9 @@
 
       connectedCallback() {
         super.connectedCallback();
-        var self = this;
-
         // When the user scrolls down 20px from the top of the document, show the button
+
+        //TODO: Add event listenr rather than overriding funcion
         window.onscroll = function () { self.scrollFunction() };
       }
 
