@@ -39,42 +39,42 @@
         super.connectedCallback();
         // When the user scrolls down 20px from the top of the document, show the button
 
-        //TODO: Add event listenr rather than overriding funcion
-        window.onscroll = function () { self.scrollFunction() };
-      }
+        //TODO: test whether the explicit bind it's needed
+        window.addEventListener('scroll', this.scrollFunction.bind(this)};
+    }
 
-      scrollFunction() {
-        if (this.enabled == "true") {
-          if (document.body.scrollTop > this.activatewhen || document.documentElement.scrollTop > this.activatewhen) {
-            this.$.toastButton.open();
+    scrollFunction() {
+      if (this.enabled == "true") {
+        if (document.body.scrollTop > this.activatewhen || document.documentElement.scrollTop > this.activatewhen) {
+          this.$.toastButton.open();
 
-          } else {
-            this.$.toastButton.close();
-          }
+        } else {
+          this.$.toastButton.close();
         }
       }
+    }
 
-      //When the user clicks on the button, scroll to the top of the document
-      topFunction() {
-        document.body.scrollTop = 0; // For Chrome, Safari and Opera 
-        document.documentElement.scrollTop = 0; // For IE and Firefox
-      }
+    //When the user clicks on the button, scroll to the top of the document
+    topFunction() {
+      document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+      document.documentElement.scrollTop = 0; // For IE and Firefox
+    }
 
       static get is() { return 'scroll-top'; }
       static get properties() {
-        return {
-          activatewhen: {
-            type: String,
-            notify: true,
-            value: "100"
-          },
-          enabled: {
-            type: String,
-            notify: true,
-            value: "true"
-          }
-        };
-      }
+      return {
+        activatewhen: {
+          type: String,
+          notify: true,
+          value: "100"
+        },
+        enabled: {
+          type: String,
+          notify: true,
+          value: "true"
+        }
+      };
+    }
     }
 
     window.customElements.define(ScrollTop.is, ScrollTop);
