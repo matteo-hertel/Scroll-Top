@@ -37,12 +37,12 @@
 
       connectedCallback() {
         super.connectedCallback();
-        //TODO: test whether the explicit bind it's needed
         //TODO: throttle the execution, add a denouncer and / or requestAnimationFrame
         window.addEventListener('scroll', this.scrollFunction.bind(this));
       }
 
       scrollFunction() {
+        console.log(this, this.is);
         if (this.enabled == "true") {
           if (document.body.scrollTop > this.activatewhen || document.documentElement.scrollTop > this.activatewhen) {
             this.$.toastButton.open();
