@@ -37,7 +37,6 @@
 
       connectedCallback() {
         super.connectedCallback();
-        //TODO: throttle the execution, add a denouncer and / or requestAnimationFrame
         this.scrollFunction();
       }
 
@@ -52,8 +51,8 @@
       }
 
       scrollFunction() {
+        //credits to MDN https://developer.mozilla.org/en-US/docs/Web/Events/scroll
         var ticking = false;
-
         window.addEventListener('scroll', (e) => {
           if (!ticking) {
             window.requestAnimationFrame(() => {
